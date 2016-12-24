@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   audio.controls = 'true';
   document.body.appendChild(audio);
 
-  // Setup Audio Analyzer
+  // Setup Audio Analyser
   const audioContext = new AudioContext();
   const analyser = audioContext.createAnalyser();
   const source = audioContext.createMediaElementSource(audio);
@@ -27,5 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Render Visualizer Controls
 	const container = document.getElementById("container");
-	ReactDOM.render(<Visualizer ctx={ctx} />, container);
+	ReactDOM.render(
+    <Visualizer
+      canvas={canvas}
+      ctx={ctx}
+      analyser={analyser}
+    />, container);
 });
