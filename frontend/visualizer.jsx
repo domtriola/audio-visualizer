@@ -14,7 +14,7 @@ class Visualizer extends React.Component {
 
   draw() {
     this.props.analyser.getByteFrequencyData(this.state.freqByteData);
-    this.props.ctx.clearRect(0, 0, 300, 300);
+    this.props.ctx.clearRect(0, 0, 600, 300);
 
     this.equalizerBar();
 
