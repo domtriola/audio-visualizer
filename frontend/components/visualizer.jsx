@@ -8,7 +8,20 @@ class Visualizer extends React.Component {
       freqByteData: new Uint8Array(this.props.analyser.frequencyBinCount)
     };
 
+    this.fetchPresets();
     this.draw();
+  }
+
+  fetchPresets() {
+    $.ajax({
+      url: "http://localhost:3000/presets/",
+      type: "GET",
+      dataType: "JSON",
+      success: function(res) {
+        console.log(res);
+        this.props.store.dispatch({type:"UPDATE_PRESETS", res});
+      }.bind(this)
+    });
   }
 
   draw() {
@@ -48,7 +61,7 @@ class Visualizer extends React.Component {
   render() {
     return (
       <div>
-        <p>testing...</p>
+        <h3>Now playing...</h3>
       </div>
     );
   }
