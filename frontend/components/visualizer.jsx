@@ -1,5 +1,6 @@
 import React from 'react';
 import { equalizerBar } from './equalizerBar.js';
+import Ripples from './ripples.js';
 
 class Visualizer extends React.Component {
   constructor(props) {
@@ -9,6 +10,8 @@ class Visualizer extends React.Component {
       freqByteData: new Uint8Array(this.props.analyser.frequencyBinCount)
     };
 
+    this.ripples = new Ripples(this.props.canvas, this.props.ctx,
+                               this.state.freqByteData);
     this.fetchPresets();
     this.draw();
   }
@@ -30,8 +33,9 @@ class Visualizer extends React.Component {
     this.props.ctx.clearRect(0, 0, 600, 300);
 
     // TODO: add logic to switch between visualizers
-    equalizerBar(this.props.canvas, this.props.ctx,
-                 this.state.freqByteData, this.colors);
+    // equalizerBar(this.props.canvas, this.props.ctx,
+    //              this.state.freqByteData, this.colors);
+    this.ripples.draw(this.colors);
 
     requestAnimationFrame(this.draw.bind(this));
   }
