@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 
 import store from './store';
 import VisualizerContainer from './components/visualizer_container.js';
+import ControlsContainer from './components/controls_container.js';
 
 // TODO debugging
 window.store = store;
@@ -11,7 +12,9 @@ window.store = store;
 if (window.location.pathname === "/visualizers/") {
   const App = () => (
   	<Provider store={store}>
-  		<VisualizerContainer />
+      <div>
+        <ControlsContainer />
+      </div>
   	</Provider>
   );
 
