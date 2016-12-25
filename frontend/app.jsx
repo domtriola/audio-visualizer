@@ -13,20 +13,25 @@ if (window.location.pathname === "/" ||
     window.location.pathname === "/visualizers" ||
     window.location.pathname === "/visualizers/") {
   document.addEventListener("DOMContentLoaded", () => {
+    const container = document.createElement('div');
+    container.id = "visualizer";
+    container.className = "col col-2-3";
+    document.body.appendChild(container);
+
     // Setup Canvas
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
     canvas.height = 300;
     canvas.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-    document.body.appendChild(canvas);
+    container.appendChild(canvas);
 
     // Setup Audio
     const audio = document.createElement('audio');
     audio.style.width = 600 + 'px';
     audio.src = '/assets/Tours_-_01_-_Enthusiast.mp3';
     audio.controls = 'true';
-    document.body.appendChild(audio);
+    container.appendChild(audio);
 
     // Setup Audio Analyser
     const audioContext = new AudioContext();

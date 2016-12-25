@@ -3,7 +3,7 @@ import React from 'react';
 const Controls =
   ({red, green, blue, updateRed, updateGreen, updateBlue,
     presets, setCurrentPreset, createNewPreset}) => (
-    <div>
+    <div id="controls" className="col col-1-3">
       <label>Red
         <input
           id="setting-red"
@@ -31,7 +31,7 @@ const Controls =
         />
       </label>
 
-      <label>Preset
+      <label>Preset<br />
         <select onChange={(e) => setCurrentPreset(e.target.value)}>
             <option name=""> --select one-- </option>
             {Object.keys(presets).map((preset, i) => (
