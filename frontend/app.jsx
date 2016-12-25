@@ -9,8 +9,9 @@ import ControlsContainer from './components/controls_container.js';
 // TODO debugging
 window.store = store;
 
-if (window.location.pathname === "/visualizers/" ||
-    window.location.pathname === "/visualizers") {
+if (window.location.pathname === "/" ||
+    window.location.pathname === "/visualizers" ||
+    window.location.pathname === "/visualizers/") {
   document.addEventListener("DOMContentLoaded", () => {
     // Setup Canvas
     const canvas = document.createElement('canvas');

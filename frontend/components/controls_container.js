@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { updateRed, updateGreen, updateBlue, reset } from '../actions';
+import { updateRed, updateGreen, updateBlue,
+         createNewPreset, setCurrentPreset, reset } from '../actions';
 import Controls from './controls.jsx';
 
 const mapStateToProps = state => ({
@@ -13,8 +14,8 @@ const mapDispatchToProps = dispatch => ({
   updateRed: (amt) => dispatch(updateRed(amt)),
   updateGreen: (amt) => dispatch(updateGreen(amt)),
   updateBlue: (amt) => dispatch(updateBlue(amt)),
-  setCurrentPreset: (presetName) => dispatch(presetName),
-  createNewPreset: (newPreset) => dispatch(newPreset),
+  setCurrentPreset: (presetName) => dispatch(setCurrentPreset(presetName)),
+  createNewPreset: (newPreset) => dispatch(createNewPreset(newPreset)),
   reset: () => dispatch(reset())
 });
 

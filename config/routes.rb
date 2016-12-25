@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'visualizers#index'
   resources :visualizers, only: [:index]
   resources :presets, only: [:index, :show, :create, :destroy]
   resources :users, only: [:new, :create, :show]

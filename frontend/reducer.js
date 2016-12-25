@@ -26,9 +26,13 @@ const reducer = (state = _defaultState, action) => {
       let blue = action.blue > 255 ? 255 : action.blue;
       nextState.blue = blue ? blue : 0;
       return nextState;
+    case "SET_PRESETS":
+      nextState.presets = action.res;
+      return nextState;
     case SET_CURRENT_PRESET:
       return nextState;
     case CREATE_NEW_PRESET:
+      nextState.presets.push(action.newPresetData);
       return nextState;
     case RESET:
       return _defaultState;

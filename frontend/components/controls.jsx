@@ -44,14 +44,27 @@ const Controls =
         <input id="new-preset" type="text" />
       </label>
       <button onClick={() => {
-          let newPreset = document.getElementById("new-preset");
+          let presetName = document.getElementById("new-preset");
           let redSetting = document.getElementById("setting-red");
           let greenSetting = document.getElementById("setting-green");
           let blueSetting = document.getElementById("setting-blue");
-          console.log(newPreset.value);
-          console.log(redSetting.value);
-          console.log(greenSetting.value);
-          console.log(blueSetting.value);
+          const newPreset = {
+            preset: {
+              name: presetName.value,
+              red: parseInt(redSetting.value),
+              green: parseInt(greenSetting.value),
+              blue: parseInt(blueSetting.value)
+            }
+          };
+          $.ajax({
+            url: "http://localhost:3000/presets",
+            type: "POST",
+            dataType: "JSON",
+            data: newPreset
+          }).then((res) => {
+            presetName.value = "";
+            createNewPreset(res);
+          });
         }}>Save</button>
     </div>
   );

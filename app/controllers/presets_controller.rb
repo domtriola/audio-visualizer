@@ -5,4 +5,21 @@ class PresetsController < ApplicationController
     presets = current_user.presets
     render json: presets
   end
+
+  def create
+    preset = Preset.new(preset_params)
+    preset.user_id = current_user.id
+    if preset.save
+      render json: preset
+    else
+      flash[:errors] = preset.errors.full_messages
+      redirect_to root_url
+    end
+  end
+
+  private
+
+  def preset_params
+    params.require(:preset).permit(:name, :red, :green, :blue)
+  end
 end
