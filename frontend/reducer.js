@@ -1,10 +1,12 @@
 import merge from 'lodash/merge';
-import { UPDATE_RED, UPDATE_GREEN, UPDATE_BLUE, RESET } from "./actions";
+import { UPDATE_RED, UPDATE_GREEN, UPDATE_BLUE,
+         RESET, SET_CURRENT_PRESET, CREATE_NEW_PRESET } from "./actions";
 
 const _defaultState = {
   red: 100,
   green: 200,
-  blue: 250
+  blue: 20,
+  presets: []
 };
 
 const reducer = (state = _defaultState, action) => {
@@ -23,6 +25,10 @@ const reducer = (state = _defaultState, action) => {
     case UPDATE_BLUE:
       let blue = action.blue > 255 ? 255 : action.blue;
       nextState.blue = blue ? blue : 0;
+      return nextState;
+    case SET_CURRENT_PRESET:
+      return nextState;
+    case CREATE_NEW_PRESET:
       return nextState;
     case RESET:
       return _defaultState;

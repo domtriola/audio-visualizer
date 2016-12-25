@@ -18,8 +18,7 @@ class Visualizer extends React.Component {
       type: "GET",
       dataType: "JSON",
       success: function(res) {
-        console.log(res);
-        this.props.store.dispatch({type:"UPDATE_PRESETS", res});
+        this.props.store.dispatch({type:"SET_PRESETS", res});
       }.bind(this)
     });
   }
