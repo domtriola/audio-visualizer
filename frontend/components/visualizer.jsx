@@ -1,4 +1,5 @@
 import React from 'react';
+import { equalizerBar } from './equalizerBar.js';
 
 class Visualizer extends React.Component {
   constructor(props) {
@@ -28,33 +29,11 @@ class Visualizer extends React.Component {
     this.props.analyser.getByteFrequencyData(this.state.freqByteData);
     this.props.ctx.clearRect(0, 0, 600, 300);
 
-    this.equalizerBar();
+    // TODO: add logic to switch between visualizers
+    equalizerBar(this.props.canvas, this.props.ctx,
+                 this.state.freqByteData, this.colors);
 
     requestAnimationFrame(this.draw.bind(this));
-  }
-
-  equalizerBar() {
-    const canvasHeight = this.props.canvas.height;
-    const freqByteData = this.state.freqByteData;
-    let barWidth = this.props.canvas.width /
-                   this.state.freqByteData.length * 8;
-
-    for (var i = 1; i < freqByteData.length; i += barWidth) {
-      let red = this.colors.red,
-          green = this.colors.green,
-          blue = this.colors.blue;
-
-      this.props.ctx.lineWidth = 1;
-      this.props.ctx.strokeStyle = '#000000';
-      this.props.ctx.fillStyle = 'rgb(' + red + ',' + green + ',' + blue + ')';
-
-      this.props.ctx.fillRect(i,
-        canvasHeight - freqByteData[Math.floor(i)],
-        barWidth, canvasHeight);
-      this.props.ctx.strokeRect(i,
-        canvasHeight - freqByteData[Math.floor(i)],
-        barWidth, canvasHeight);
-    }
   }
 
   render() {
