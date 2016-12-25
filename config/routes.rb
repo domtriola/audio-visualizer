@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :visualizers, only: [:index]
-  get 'presets' => 'visualizers#presets'
+  resources :presets, only: [:index, :show, :create, :destroy]
   resources :users, only: [:new, :create, :show]
   resource :session, only: [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.

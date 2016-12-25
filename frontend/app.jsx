@@ -9,7 +9,8 @@ import ControlsContainer from './components/controls_container.js';
 // TODO debugging
 window.store = store;
 
-if (window.location.pathname === "/visualizers/") {
+if (window.location.pathname === "/visualizers/" ||
+    window.location.pathname === "/visualizers") {
   document.addEventListener("DOMContentLoaded", () => {
     // Setup Canvas
     const canvas = document.createElement('canvas');
@@ -21,7 +22,7 @@ if (window.location.pathname === "/visualizers/") {
 
     // Setup Audio
     const audio = document.createElement('audio');
-    audio.style.width = 300 + 'px';
+    audio.style.width = 600 + 'px';
     audio.src = '/assets/Tours_-_01_-_Enthusiast.mp3';
     audio.controls = 'true';
     document.body.appendChild(audio);

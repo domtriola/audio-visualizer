@@ -1,8 +1,6 @@
 class VisualizersController < ApplicationController
-  def index
-  end
+  before_action :ensure_logged_in
 
-  def presets
-    render json: { "testing" => "test" }
+  def index
   end
 end

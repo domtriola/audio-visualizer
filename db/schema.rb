@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161224061923) do
+ActiveRecord::Schema.define(version: 20161225020457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "presets", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.string   "name",       null: false
+    t.integer  "red",        null: false
+    t.integer  "green",      null: false
+    t.integer  "blue",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "presets", ["name"], name: "index_presets_on_name", using: :btree
+  add_index "presets", ["user_id"], name: "index_presets_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
