@@ -32,10 +32,10 @@ const Controls =
       </label>
 
       <label>Preset
-        <select>
+        <select onChange={(e) => setCurrentPreset(e.target.value)}>
             <option name=""> --select one-- </option>
-            {presets.map((preset, i) => (
-              <option key={i} name={preset.name}>{preset.name}</option>
+            {Object.keys(presets).map((preset, i) => (
+              <option key={i} name={preset}>{preset}</option>
             ))}
         </select>
       </label>

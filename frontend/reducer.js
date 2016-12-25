@@ -6,7 +6,7 @@ const _defaultState = {
   red: 100,
   green: 200,
   blue: 20,
-  presets: []
+  presets: {}
 };
 
 const reducer = (state = _defaultState, action) => {
@@ -30,9 +30,13 @@ const reducer = (state = _defaultState, action) => {
       nextState.presets = action.res;
       return nextState;
     case SET_CURRENT_PRESET:
+      const preset = nextState.presets[action.presetName];
+      nextState.red = preset.red;
+      nextState.blue = preset.blue;
+      nextState.green = preset.green;
       return nextState;
     case CREATE_NEW_PRESET:
-      nextState.presets.push(action.newPresetData);
+      nextState.presets[action.newPresetData.name] = (action.newPresetData);
       return nextState;
     case RESET:
       return _defaultState;

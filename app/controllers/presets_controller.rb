@@ -2,7 +2,11 @@ class PresetsController < ApplicationController
   before_action :ensure_logged_in
 
   def index
-    presets = current_user.presets
+    all_presets = current_user.presets
+    presets = {}
+    all_presets.each do |preset|
+      presets[preset.name] = preset
+    end
     render json: presets
   end
 
