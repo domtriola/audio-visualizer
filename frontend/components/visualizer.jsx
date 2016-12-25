@@ -1,32 +1,10 @@
-// import React from 'react';
-//
-// const Visualizer =
-//   ({red, green, blue, updateRed, updateGreen, updateBlue}) => (
-//     <div>
-//       <label>Red
-//         <input
-//           type="text"
-//           onChange={(e) => updateRed(parseInt(e.target.value))}
-//           value={red}
-//         />
-//       </label>
-//
-//       <label>Green
-//         <input
-//           type="text"
-//           onChange={(e) => updateGreen(parseInt(e.target.value))}
-//           value={green}
-//         />
-//       </label>
-//
-//       <label>Blue
-//         <input
-//           type="text"
-//           onChange={(e) => updateBlue(parseInt(e.target.value))}
-//           value={blue}
-//         />
-//       </label>
-//     </div>
-//   );
-//
-// export default Visualizer;
+import React from 'react';
+
+const Visualizer = ({ctx}) => (
+    <div>
+      <canvas width="600" height="300"></canvas>
+      <audio src=""></audio>
+    </div>
+  );
+
+export default Visualizer;
