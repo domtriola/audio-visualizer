@@ -1,9 +1,13 @@
+import Util from './utils';
+import Ripple from './ripple';
+
 class Ripples {
   constructor(canvas, ctx, freqByteData) {
     this.canvas = canvas;
     this.ctx = ctx;
     this.freqByteData = freqByteData;
     this.ripples = [];
+    this.prevVol = 0;
   }
 
   draw(colors) {
@@ -25,30 +29,25 @@ class Ripples {
       this.ripples.shift();
   }
 
+  // updateRipples() {
+  //   this.ripples.forEach(ring => {
+  //     ring.speed = Util.totalVol(this.freqByteData) / 10000;
+  //     ring.size += ring.speed;
+  //   });
+  // }
+
   updateRipples() {
-    this.ripples.forEach(function(ring) {
-      ring.speed = totalVol(this.freqByteData) / 10000;
+    this.ripples.forEach(ring => {
+      let vol = Util.totalVol(this.freqByteData);
+      if (vol > this.prevVol) {
+        ring.speed = vol / 12000;
+      } else
+        ring.speed = vol / 20000;
+
       ring.size += ring.speed;
-    }.bind(this));
+      this.prevVol = vol;
+    });
   }
-}
-
-class Ripple {
-  constructor(canvas, colors) {
-    this.pos = [canvas.width / 2, canvas.height / 2];
-    this.rgb = 'rgba(' + colors.red + ',' +
-                 colors.green + ',' + colors.blue + ', 0.6)';
-    this.size = 0;
-    this.width = 1;
-    this.speed = 1;
-  }
-}
-
-function totalVol(freqByteData) {
-  let volume = 0;
-  for (let i = 0; i < freqByteData.length; i++)
-    volume += freqByteData[i];
-  return volume;
 }
 
 export default Ripples;
