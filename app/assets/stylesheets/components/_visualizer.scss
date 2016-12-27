@@ -5,3 +5,13 @@ canvas {
 audio {
   display: block;
 }
+
+#visualizer {
+  position: relative;
+}
+
+#play-instructions {
+  position: absolute;
+  left: 38%;
+  top: 35%;
+}

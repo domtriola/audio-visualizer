@@ -8,6 +8,7 @@ class Ripples {
     this.freqByteData = freqByteData;
     this.ripples = [];
     this.prevVol = 0;
+    // this.toShift = { red: -1 };
   }
 
   draw(colors) {

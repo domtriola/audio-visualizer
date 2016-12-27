@@ -16,7 +16,7 @@ if (window.location.pathname === "/" ||
     const container = document.createElement('div');
     container.id = "visualizer";
     container.className = "col col-2-3";
-    document.body.appendChild(container);
+    document.getElementById("main").appendChild(container);
 
     // Setup Canvas
     const canvas = document.createElement('canvas');
@@ -28,9 +28,17 @@ if (window.location.pathname === "/" ||
 
     // Setup Audio
     const audio = document.createElement('audio');
+    const playInstructions = document.createElement('div');
+    playInstructions.id = "play-instructions";
+    playInstructions.innerHTML = "Press play to begin";
+    container.append(playInstructions);
     audio.style.width = 600 + 'px';
     audio.src = '/assets/Tours_-_01_-_Enthusiast.mp3';
     audio.controls = 'true';
+    audio.addEventListener("play", () => {
+      let instructions = document.getElementById('play-instructions');
+      instructions.parentNode.removeChild(instructions);
+    });
     container.appendChild(audio);
 
     // Setup Audio Analyser

@@ -3,11 +3,13 @@ import React from 'react';
 const Controls =
   ({red, green, blue, updateRed, updateGreen, updateBlue,
     presets, setCurrentPreset, createNewPreset}) => (
-    <div id="controls" className="col col-1-3">
+    <div id="controls">
       <label>Red
         <input
           id="setting-red"
-          type="text"
+          type="range"
+          min="0"
+          max="255"
           onChange={(e) => updateRed(parseInt(e.target.value))}
           value={red}
         />
@@ -16,7 +18,9 @@ const Controls =
       <label>Green
         <input
           id="setting-green"
-          type="text"
+          type="range"
+          min="0"
+          max="255"
           onChange={(e) => updateGreen(parseInt(e.target.value))}
           value={green}
         />
@@ -25,7 +29,9 @@ const Controls =
       <label>Blue
         <input
           id="setting-blue"
-          type="text"
+          type="range"
+          min="0"
+          max="255"
           onChange={(e) => updateBlue(parseInt(e.target.value))}
           value={blue}
         />

@@ -27,13 +27,7 @@ const Util = {
     }
 
     return shiftedColors;
-  }
-  // if (mainColor[shiftI] > 230 || mainColor[shiftI] < 20) {
-  //   shiftI = (shiftI + 1) % 3;
-  //   shiftDir = mainColor[shiftI] > 230 ? -1 : 1;
-  // }
-  //
-  // mainColor[shiftI] += shiftDir * Math.min(20, Math.floor(vol / 5000));
+  },
 };
 
 export default Util;

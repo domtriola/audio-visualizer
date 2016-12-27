@@ -43,7 +43,7 @@ class Visualizer extends React.Component {
   render() {
     return (
       <div>
-        <h3>Now playing...</h3>
+        <h3>Settings</h3>
       </div>
     );
   }

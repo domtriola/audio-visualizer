@@ -1,4 +1,83 @@
+body {
+  background: #222;
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 40px;
+  font-family: "Baloo Thambi", cursive;
+  text-align: center;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 input, label {
   display: block;
+  margin: 5px 0 20px;
+}
+
+button,
+input[type="submit"] {
+  color: #fff;
+  background-color: #4285f4;
+  padding: 5px 20px;
+  border-radius: 2px;
+  // font-weight: 600;
+}
+
+button:hover,
+input[type="submit"]:hover  {
+  background-color: #fff;
+  color: #4285f4;
+}
+
+.username {
+  display: block;
+}
+
+.username form {
+  display: inline-block;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+.username input,
+a {
+  background-color: transparent;
+  color: #888;
+  font-weight: bold;
+  vertical-align: bottom;
   margin-bottom: 20px;
+  margin-top: 0;
+  padding: 0;
+}
+
+.username input:hover {
+  background-color: transparent;
+}
+
+#main {
+  display: flex;
+}
+
+#root {
+  order: 1;
+  padding-left: 60px;
+}
+
+@media all and (max-width: 1000px) {
+  #main [class*='col-'] {
+    width: 100%;
+  }
 }
