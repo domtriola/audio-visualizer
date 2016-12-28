@@ -36,6 +36,7 @@ const reducer = (state = _defaultState, action) => {
       nextState.red = preset.red;
       nextState.blue = preset.blue;
       nextState.green = preset.green;
+      nextState.effect = preset.effect;
       return nextState;
     case CREATE_NEW_PRESET:
       nextState.presets[action.newPresetData.name] = (action.newPresetData);

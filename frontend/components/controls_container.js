@@ -8,6 +8,7 @@ const mapStateToProps = state => ({
   red: state.red,
   green: state.green,
   blue: state.blue,
+  effect: state.effect,
   presets: state.presets
 });
 
