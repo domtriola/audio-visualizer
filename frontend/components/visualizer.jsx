@@ -28,14 +28,19 @@ class Visualizer extends React.Component {
   }
 
   draw() {
-    this.colors = this.props.store.getState();
+    this.settings = this.props.store.getState();
     this.props.analyser.getByteFrequencyData(this.state.freqByteData);
     this.props.ctx.clearRect(0, 0, 600, 300);
 
-    // TODO: add logic to switch between visualizers
-    // equalizerBar(this.props.canvas, this.props.ctx,
-    //              this.state.freqByteData, this.colors);
-    this.ripples.draw(this.colors);
+    switch(this.settings.effect) {
+      case "Equalizer":
+        equalizerBar(this.props.canvas, this.props.ctx,
+                     this.state.freqByteData, this.settings);
+        break;
+      case "Ripples":
+        this.ripples.draw(this.settings);
+        break;
+    }
 
     requestAnimationFrame(this.draw.bind(this));
   }

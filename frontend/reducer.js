@@ -1,11 +1,13 @@
 import merge from 'lodash/merge';
 import { UPDATE_RED, UPDATE_GREEN, UPDATE_BLUE,
-         RESET, SET_CURRENT_PRESET, CREATE_NEW_PRESET } from "./actions";
+         RESET, SET_CURRENT_PRESET, CREATE_NEW_PRESET,
+         SET_CURRENT_EFFECT } from "./actions";
 
 const _defaultState = {
   red: 100,
   green: 200,
   blue: 20,
+  effect: "Equalizer",
   presets: {}
 };
 
@@ -37,6 +39,9 @@ const reducer = (state = _defaultState, action) => {
       return nextState;
     case CREATE_NEW_PRESET:
       nextState.presets[action.newPresetData.name] = (action.newPresetData);
+      return nextState;
+    case SET_CURRENT_EFFECT:
+      nextState.effect = action.effectName;
       return nextState;
     case RESET:
       return _defaultState;

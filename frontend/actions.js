@@ -3,6 +3,7 @@ export const UPDATE_GREEN = "UPDATE_GREEN";
 export const UPDATE_BLUE = "UPDATE_BLUE";
 export const SET_CURRENT_PRESET = "SET_CURRENT_PRESET";
 export const CREATE_NEW_PRESET = "CREATE_NEW_PRESET";
+export const SET_CURRENT_EFFECT = "SET_CURRENT_EFFECT";
 export const RESET = "RESET";
 
 export const updateRed = (amt) => ({
@@ -28,6 +29,11 @@ export const setCurrentPreset = (presetName) => ({
 export const createNewPreset = (newPresetData) => ({
   type: CREATE_NEW_PRESET,
   newPresetData
+});
+
+export const setCurrentEffect = (effectName) => ({
+  type: SET_CURRENT_EFFECT,
+  effectName
 });
 
 export const reset = () => ({

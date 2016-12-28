@@ -28,6 +28,22 @@ const Util = {
 
     return shiftedColors;
   },
+  //
+  // shiftColors: (colors, toShift) => {
+  //   const shiftedColors = merge({}, colors);
+  //
+  //   let color = Object.keys(toShift[0]);
+  //   if (toShift[color] === 1 && shiftedColors[color] < colors[color])
+  //     colors
+  //
+  //   return { color: shiftDir };
+  // }
+  // if (mainColor[shiftI] > 230 || mainColor[shiftI] < 20) {
+  //   shiftI = (shiftI + 1) % 3;
+  //   shiftDir = mainColor[shiftI] > 230 ? -1 : 1;
+  // }
+  //
+  // mainColor[shiftI] += shiftDir * Math.min(20, Math.floor(vol / 5000));
 };
 
 export default Util;

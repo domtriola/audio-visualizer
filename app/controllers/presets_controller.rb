@@ -24,6 +24,6 @@ class PresetsController < ApplicationController
   private
 
   def preset_params
-    params.require(:preset).permit(:name, :red, :green, :blue)
+    params.require(:preset).permit(:name, :red, :green, :blue, :effect)
   end
 end

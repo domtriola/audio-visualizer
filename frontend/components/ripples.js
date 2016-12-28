@@ -19,31 +19,26 @@ class Ripples {
       this.ctx.strokeStyle = ripple.rgb;
       this.ctx.lineWidth = 6;
       this.ctx.beginPath();
-      this.ctx.arc(ripple.pos[0], ripple.pos[1], ripple.size, 0, 2 * Math.PI);
+      ripple.size += ripple.speed;
+      this.ctx.arc(ripple.pos[0], ripple.pos[1],
+                   ripple.size, 0, 2 * Math.PI);
       this.ctx.stroke();
     }.bind(this));
   }
 
   genRipple(colors) {
     this.ripples.push(new Ripple(this.canvas, colors));
-    if (this.ripples.length > 70)
+    if (this.ripples.length > 100)
       this.ripples.shift();
   }
-
-  // updateRipples() {
-  //   this.ripples.forEach(ring => {
-  //     ring.speed = Util.totalVol(this.freqByteData) / 10000;
-  //     ring.size += ring.speed;
-  //   });
-  // }
 
   updateRipples() {
     this.ripples.forEach(ring => {
       let vol = Util.totalVol(this.freqByteData);
       if (vol > this.prevVol) {
-        ring.speed = vol / 12000;
+        ring.speed = vol / 4000;
       } else
-        ring.speed = vol / 20000;
+        ring.speed = vol / 40000;
 
       ring.size += ring.speed;
       this.prevVol = vol;
