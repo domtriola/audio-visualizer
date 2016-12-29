@@ -10,6 +10,7 @@ const Util = {
 
   randomizeColors: (colors) => {
     const shiftedColors = merge({}, colors);
+
     for (let color in shiftedColors) {
       if (shiftedColors.hasOwnProperty(color)) {
         let newColor = shiftedColors[color];
@@ -28,22 +29,32 @@ const Util = {
 
     return shiftedColors;
   },
-  //
-  // shiftColors: (colors, toShift) => {
-  //   const shiftedColors = merge({}, colors);
-  //
-  //   let color = Object.keys(toShift[0]);
-  //   if (toShift[color] === 1 && shiftedColors[color] < colors[color])
-  //     colors
-  //
-  //   return { color: shiftDir };
-  // }
-  // if (mainColor[shiftI] > 230 || mainColor[shiftI] < 20) {
-  //   shiftI = (shiftI + 1) % 3;
-  //   shiftDir = mainColor[shiftI] > 230 ? -1 : 1;
-  // }
-  //
-  // mainColor[shiftI] += shiftDir * Math.min(20, Math.floor(vol / 5000));
+
+  shiftColors: (colorShift, colors) => {
+    let shiftedColors = merge({}, colorShift);
+    Object.keys(shiftedColors).forEach(key => {
+      if (shiftedColors[key] === null)
+        shiftedColors[key] = colors[key];
+    });
+
+    let shiftColors = shiftedColors.dir[0].slice(0);
+    let shiftColor = shiftColors[0];
+    let shiftDir = shiftedColors.dir[1];
+    if (shiftedColors[shiftColor] <= colors[shiftColor] &&
+        shiftedColors[shiftColor] >= 0) {
+      shiftedColors[shiftColor] += shiftDir;
+    } else {
+      shiftedColors[shiftColor] -= shiftDir;
+      shiftDir = shiftDir === 1 ? -1 : 1;
+      let rotate = shiftColors.shift();
+      shiftColors.push(rotate);
+    }
+
+    return { red: shiftedColors.red,
+             green: shiftedColors.green,
+             blue: shiftedColors.blue,
+             dir: [shiftColors, shiftDir] };
+  }
 };
 
 export default Util;
