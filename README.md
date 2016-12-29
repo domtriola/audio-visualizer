@@ -4,6 +4,7 @@ This is a user customizable audio visualizer powered by a Ruby on Rails backend 
 
   - ```bundle install```
   - ```npm install```
+  - ```webpack```
   - ```rake db:create```
   - ```rake db:seed```
   - ```rails s```
