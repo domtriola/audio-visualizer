@@ -9,13 +9,16 @@ class Ripples {
     this.ripples = [];
     this.prevVol = 0;
     this.colorShift = { red: null, green: null, blue: null,
-                        dir: [['green', 'blue', 'red'], -1] };
+                        dir: [['red', 'green', 'blue'], -1] };
   }
 
   draw({ red, green, blue }) {
+    let vol = Util.totalVol(this.freqByteData);
+    let dVol = vol - this.prevVol;
+    this.prevVol = vol;
     const colors = { red, green, blue };
-    this.colorShift = Util.shiftColors(this.colorShift, colors);
-    this.genRipple(this.colorShift);
+    this.colorShift = Util.shiftColors(this.colorShift, colors, dVol);
+    this.genRipple(this.colorShift, vol);
 
     this.ripples.forEach(function(ripple, i) {
       this.ctx.strokeStyle = ripple.rgb;
@@ -29,9 +32,8 @@ class Ripples {
     }.bind(this));
   }
 
-  genRipple({ red, green, blue }) {
+  genRipple({ red, green, blue }, vol) {
     const colors = { red, green, blue };
-    let vol = Util.totalVol(this.freqByteData);
     this.ripples.push(new Ripple(this.canvas, colors, vol));
     if (this.ripples.length > 100)
       this.ripples.shift();

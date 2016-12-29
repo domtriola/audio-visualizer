@@ -30,7 +30,7 @@ const Util = {
     return shiftedColors;
   },
 
-  shiftColors: (colorShift, colors) => {
+  shiftColors: (colorShift, colors, dVol) => {
     let shiftedColors = merge({}, colorShift);
     Object.keys(shiftedColors).forEach(key => {
       if (shiftedColors[key] === null)
@@ -40,11 +40,13 @@ const Util = {
     let shiftColors = shiftedColors.dir[0].slice(0);
     let shiftColor = shiftColors[0];
     let shiftDir = shiftedColors.dir[1];
-    if (shiftedColors[shiftColor] <= colors[shiftColor] &&
-        shiftedColors[shiftColor] >= 0) {
-      shiftedColors[shiftColor] += shiftDir;
+
+    let colorAmnt = shiftedColors[shiftColor];
+    if (colorAmnt <= colors[shiftColor] && colorAmnt >= 0) {
+      let delta = dVol > 0 ? 8 : 1;
+      shiftedColors[shiftColor] += delta * shiftDir;
     } else {
-      shiftedColors[shiftColor] -= shiftDir;
+      shiftedColors[shiftColor] = colorAmnt <= 0 ? 1 : colors[shiftColor] - 1;
       shiftDir = shiftDir === 1 ? -1 : 1;
       let rotate = shiftColors.shift();
       shiftColors.push(rotate);
