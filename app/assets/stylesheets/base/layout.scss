@@ -1,15 +1,19 @@
 body {
   background: #222;
   color: #fff;
-  font-family: 'Open Sans', sans-serif;
+  font-family: $sans-serif;
   font-weight: 300;
   max-width: 900px;
   margin: 0 auto;
 }
 
+a:hover {
+  color: $blue;
+}
+
 h1 {
   font-size: 40px;
-  font-family: "Baloo Thambi", cursive;
+  font-family: $baloo;
   text-align: center;
 }
 
@@ -30,16 +34,15 @@ input, label {
 button,
 input[type="submit"] {
   color: #fff;
-  background-color: #4285f4;
+  background-color: $blue;
   padding: 5px 20px;
   border-radius: 2px;
-  // font-weight: 600;
 }
 
 button:hover,
 input[type="submit"]:hover  {
   background-color: #fff;
-  color: #4285f4;
+  color: $blue;
 }
 
 .username {

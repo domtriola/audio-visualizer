@@ -37,7 +37,8 @@ if (window.location.pathname === "/" ||
     audio.controls = 'true';
     audio.addEventListener("play", () => {
       let instructions = document.getElementById('play-instructions');
-      instructions.parentNode.removeChild(instructions);
+      if (instructions)
+        instructions.parentNode.removeChild(instructions);
     });
     container.appendChild(audio);
 
