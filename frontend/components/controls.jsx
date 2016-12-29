@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Controls =
-  ({red, green, blue, updateRed, updateGreen, updateBlue, presets,
-    setCurrentPreset, createNewPreset, setCurrentEffect}) => (
+  ({red, green, blue, updateRed, updateGreen, updateBlue, effect,
+    presets, setCurrentPreset, createNewPreset, setCurrentEffect}) => (
     <div id="controls">
       <label>Preset<br />
         <select onChange={(e) => setCurrentPreset(e.target.value)}>
@@ -15,7 +15,8 @@ const Controls =
 
       <label>Effect<br />
         <select id="setting-effect"
-          onChange={(e) => setCurrentEffect(e.target.value)}>
+          onChange={(e) => setCurrentEffect(e.target.value)}
+          value={effect}>
             <option>Equalizer</option>
             <option>Ripples</option>
         </select>

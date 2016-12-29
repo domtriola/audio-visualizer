@@ -18,8 +18,7 @@ const mapDispatchToProps = dispatch => ({
   updateBlue: (amt) => dispatch(updateBlue(amt)),
   setCurrentPreset: (presetName) => dispatch(setCurrentPreset(presetName)),
   createNewPreset: (newPreset) => dispatch(createNewPreset(newPreset)),
-  setCurrentEffect: (effectName) => dispatch(setCurrentEffect(effectName)),
-  reset: () => dispatch(reset())
+  setCurrentEffect: (effectName) => dispatch(setCurrentEffect(effectName))
 });
 
 export default connect(

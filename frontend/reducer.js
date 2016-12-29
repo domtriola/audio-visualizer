@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import { UPDATE_RED, UPDATE_GREEN, UPDATE_BLUE,
-         RESET, SET_CURRENT_PRESET, CREATE_NEW_PRESET,
+         SET_CURRENT_PRESET, CREATE_NEW_PRESET,
          SET_CURRENT_EFFECT } from "./actions";
 
 const _defaultState = {
@@ -44,8 +44,6 @@ const reducer = (state = _defaultState, action) => {
     case SET_CURRENT_EFFECT:
       nextState.effect = action.effectName;
       return nextState;
-    case RESET:
-      return _defaultState;
     default:
       return state;
   }
