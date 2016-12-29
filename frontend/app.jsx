@@ -6,12 +6,12 @@ import store from './store';
 import Visualizer from './components/visualizer.jsx';
 import ControlsContainer from './components/controls_container.js';
 
-// TODO debugging
 window.store = store;
 
 if (window.location.pathname === "/" ||
     window.location.pathname === "/visualizers" ||
     window.location.pathname === "/visualizers/") {
+
   document.addEventListener("DOMContentLoaded", () => {
     const container = document.createElement('div');
     container.id = "visualizer";
@@ -22,7 +22,7 @@ if (window.location.pathname === "/" ||
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = 600;
-    canvas.height = 300;
+    canvas.height = 400;
     canvas.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
     container.appendChild(canvas);
 
@@ -61,9 +61,6 @@ if (window.location.pathname === "/" ||
       </Provider>
     );
 
-  	ReactDOM.render(
-  		<App />,
-  		document.getElementById('root')
-  	);
+  	ReactDOM.render(<App />, document.getElementById('root'));
   });
 }

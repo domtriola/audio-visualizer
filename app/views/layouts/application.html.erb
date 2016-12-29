@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test</title>
+  <title>Audio Visualizer</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi|Open+Sans:300,600" rel="stylesheet">
   <%= javascript_include_tag 'application' %>
@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <h1>Audio Visualizer</h1>
+  <h1 class="logo"><%= link_to "Audio Visualizer", root_url %></h1>
 
   <% if flash[:errors] %>
     <% flash[:errors].each do |error| %>
@@ -19,7 +19,7 @@
 
   <% if logged_in? %>
     <div class="username">
-      Welcome <%= current_user.username %>!
+      Welcome <%= link_to current_user.username, user_url(current_user) %>!
       <%= button_to "Sign Out", session_url, method: :delete %>
     </div>
   <% else %>

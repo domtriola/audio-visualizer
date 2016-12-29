@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless logged_in?
   end
 
+  def ensure_current_user
+    redirect_to root_url unless current_user.id == params[:id].to_i
+  end
+
   private
 
   def user_params

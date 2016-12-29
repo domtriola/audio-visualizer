@@ -30,7 +30,7 @@ class Visualizer extends React.Component {
   draw() {
     this.settings = this.props.store.getState();
     this.props.analyser.getByteFrequencyData(this.state.freqByteData);
-    this.props.ctx.clearRect(0, 0, 600, 300);
+    this.props.ctx.clearRect(0, 0, 600, 400);
 
     switch(this.settings.effect) {
       case "Equalizer":

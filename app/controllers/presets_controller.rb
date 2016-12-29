@@ -21,6 +21,12 @@ class PresetsController < ApplicationController
     end
   end
 
+  def destroy
+    preset = Preset.find(params[:id])
+    preset.destroy
+    redirect_to user_url(current_user)
+  end
+
   private
 
   def preset_params

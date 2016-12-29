@@ -1,1 +1,20 @@
-user show page
+<h2>Your Presets</h2>
+
+<ul class="preset-list">
+  <% @user.presets.each do |preset| %>
+    <li>
+      <h4><%= preset.name %></h4>
+      Effect: <%= preset.effect %><br>
+      Red: <%= preset.red %><br>
+      Green: <%= preset.green %><br>
+      Blue: <%= preset.blue %><br>
+
+      <%= link_to "Delete", preset_url(preset), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<br>
+<br>
+
+<%= link_to "Back to Visualizer", root_url %>
