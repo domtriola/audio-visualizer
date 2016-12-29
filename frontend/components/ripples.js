@@ -35,7 +35,7 @@ class Ripples {
   genRipple({ red, green, blue }, vol) {
     const colors = { red, green, blue };
     this.ripples.push(new Ripple(this.canvas, colors, vol));
-    if (this.ripples.length > 100)
+    if (this.ripples.length > 110)
       this.ripples.shift();
   }
 }

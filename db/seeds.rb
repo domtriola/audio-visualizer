@@ -6,8 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-u1 = User.create!(username: "a", password: "testing")
-Preset.create!(name: "First", user_id: u1.id,
-               red: 100, blue: 100, green: 200)
-Preset.create!(name: "Second", user_id: u1.id,
-              red: 100, green: 200, blue: 250)
+u1 = User.create!(username: "Demo", password: "password")
+Preset.create!(name: "Green Bar", user_id: u1.id, effect: "Equalizer",
+               red: 100, green: 200, blue: 20)
+Preset.create!(name: "Sea Ripples", user_id: u1.id, effect: "Ripples",
+               red: 29, green: 217, blue: 134)
+Preset.create!(name: "Orange Bar", user_id: u1.id, effect: "Equalizer",
+               red: 208, green: 85, blue: 27)
+Preset.create!(name: "Full Range Ripples", user_id: u1.id, effect: "Ripples",
+               red: 255, green: 255, blue: 255)
