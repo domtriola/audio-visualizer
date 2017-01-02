@@ -6,6 +6,7 @@ This is a user customizable audio visualizer powered by a Ruby on Rails backend 
   - ```npm install```
   - ```webpack```
   - ```rake db:create```
+  - ```rake db:migrate```
   - ```rake db:seed```
   - ```rails s```
   - Open localhost:3000 in your browser

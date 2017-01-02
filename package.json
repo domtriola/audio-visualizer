@@ -4,7 +4,8 @@
   "description": "== README",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack"
+    "webpack": "webpack",
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +23,8 @@
     "redux": "^3.6.0",
     "webpack": "^1.14.0"
   },
-  "scripts": {
-    "webpack": "webpack"
+  "engines": {
+    "node": "6.2.1",
+    "npm": "3.9.3"
   }
 }
