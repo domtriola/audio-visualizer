@@ -74,7 +74,7 @@ const Controls =
             }
           };
           $.ajax({
-            url: "http://localhost:3000/presets",
+            url: "/presets",
             type: "POST",
             dataType: "JSON",
             data: newPreset

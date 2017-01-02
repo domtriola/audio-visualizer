@@ -18,7 +18,7 @@ class Visualizer extends React.Component {
 
   fetchPresets() {
     $.ajax({
-      url: "http://localhost:3000/presets/",
+      url: "/presets/",
       type: "GET",
       dataType: "JSON",
       success: function(res) {
