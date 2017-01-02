@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   def login_user!(user)
     @current_user = user
     session[:session_token] = user.reset_session_token!
-    redirect_to visualizers_url
+    redirect_to root_url
   end
 
   def logged_in?
