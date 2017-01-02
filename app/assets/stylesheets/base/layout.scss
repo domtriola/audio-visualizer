@@ -50,6 +50,11 @@ input[type="submit"]:hover  {
   color: $blue;
 }
 
+input[type="text"],
+input[type="password"] {
+  padding: 4px;
+}
+
 .logo a {
   color: #fff;
 }
