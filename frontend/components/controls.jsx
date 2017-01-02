@@ -55,7 +55,7 @@ const Controls =
         />
       </label>
 
-      <label>New Preset
+      <label>Create New Preset
         <input id="new-preset" type="text" />
       </label>
       <button onClick={() => {
