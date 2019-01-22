@@ -44,6 +44,11 @@ if (window.location.pathname === "/" ||
 
     // Setup Audio Analyser
     const audioContext = new AudioContext();
+    audio.addEventListener('play', () => {
+      audioContext.resume().then(() => {
+        console.log('Playback resumed successfully')
+      });
+    });
     const analyser = audioContext.createAnalyser();
     const source = audioContext.createMediaElementSource(audio);
     source.connect(analyser);
